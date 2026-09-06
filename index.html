@@ -203,6 +203,60 @@
       color: var(--gold);
     }
 
+    .benefit-goals {
+      display: grid;
+      gap: 10px;
+      padding: 14px;
+      border: 1px solid rgba(23, 107, 77, 0.16);
+      border-radius: 6px;
+      background: rgba(255, 255, 255, 0.62);
+    }
+
+    .benefit-goals h3 {
+      margin: 0;
+      color: var(--green);
+      font-size: 14px;
+      line-height: 1.2;
+    }
+
+    .benefit-goals ul {
+      display: grid;
+      gap: 8px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .benefit-goals li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 3px 10px;
+      align-items: baseline;
+    }
+
+    .benefit-goals span,
+    .benefit-goals em,
+    .benefit-goals small {
+      color: var(--muted);
+      font-size: 12px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 1.35;
+    }
+
+    .benefit-goals strong {
+      color: var(--green);
+      font-size: 16px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+
+    .benefit-goals em,
+    .benefit-goals small {
+      grid-column: 1 / -1;
+      font-weight: 600;
+    }
+
     .categories {
       display: grid;
       gap: 8px;
@@ -335,7 +389,7 @@
     <header class="masthead">
       <div>
         <h1>카드 현황</h1>
-        <p class="subtitle">기준월 2026-09 · 생성시각 2026-09-06T21:11:05</p>
+        <p class="subtitle">기준월 2026-09 · 생성시각 2026-09-06T22:04:32</p>
       </div>
       <section class="summary" aria-label="월간 요약">
         <div>
@@ -387,6 +441,23 @@
         </div>
 
       </div>
+        <section class="benefit-goals" aria-label="혜택 한도까지 남은 사용금액">
+          <h3>혜택 한도까지</h3>
+          <ul>
+          <li>
+            <span>온라인 혜택 한도까지</span>
+            <strong>139,074원 더</strong>
+            <em>19,139P / 40,000P</em>
+            <small>해당 카테고리 적립대상 결제 기준</small>
+          </li>
+          <li>
+            <span>오프라인 혜택 한도까지</span>
+            <strong>165,894원 더</strong>
+            <em>15,116P / 40,000P</em>
+            <small>해당 카테고리 적립대상 결제 기준</small>
+          </li>
+          </ul>
+        </section>
         <ul class="categories">
           <li>
             <span>온라인</span>
@@ -585,6 +656,16 @@
         </div>
 
       </div>
+        <section class="benefit-goals" aria-label="혜택 한도까지 남은 사용금액">
+          <h3>혜택 한도까지</h3>
+          <ul>
+          <li>
+            <span>네이버결제 20만원까지</span>
+            <strong>68,340원 더</strong>
+            <em>131,660원 / 200,000원</em>
+          </li>
+          </ul>
+        </section>
         <ul class="categories">
           <li>
             <span>네이버멤버십대상</span>
@@ -720,6 +801,35 @@
           <strong>0원</strong>
         </div>
       </div>
+        <section class="benefit-goals" aria-label="혜택 한도까지 남은 사용금액">
+          <h3>혜택 한도까지</h3>
+          <ul>
+          <li>
+            <span>TimePlan 한도까지</span>
+            <strong>74,400원 더</strong>
+            <em>2,560원 / 10,000원</em>
+            <small>10% 할인 가맹점 기준</small>
+          </li>
+          <li>
+            <span>DailyPlan 한도까지</span>
+            <strong>250,000원 더</strong>
+            <em>0원 / 25,000원</em>
+            <small>쇼핑 10% 기준, 이동/생활은 5%</small>
+          </li>
+          <li>
+            <span>MonthlyPlan 한도까지</span>
+            <strong>50,000원 더</strong>
+            <em>0원 / 10,000원</em>
+            <small>구독 20% 기준, 공과금은 10%</small>
+          </li>
+          <li>
+            <span>MoviePlan 한도까지</span>
+            <strong>영화 1회</strong>
+            <em>0원 / 5,000원</em>
+            <small>12,000원 이상 영화 예매 기준</small>
+          </li>
+          </ul>
+        </section>
         <ul class="categories">
           <li>
             <span>TimePlan</span>
