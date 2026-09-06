@@ -4,37 +4,446 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Card Status 2026-08</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f4f0e8;
+      --ink: #17211b;
+      --muted: #6c736d;
+      --line: #d9d1c4;
+      --panel: #fffaf2;
+      --panel-strong: #ffffff;
+      --green: #176b4d;
+      --teal: #0f766e;
+      --gold: #b7791f;
+      --red: #b4483a;
+      --shadow: 0 18px 45px rgba(31, 38, 35, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(120deg, rgba(23, 107, 77, 0.13), transparent 34%),
+        linear-gradient(315deg, rgba(183, 121, 31, 0.16), transparent 38%),
+        var(--bg);
+      color: var(--ink);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      letter-spacing: 0;
+    }
+
+    main {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 40px 0;
+    }
+
+    .masthead {
+      display: grid;
+      grid-template-columns: 1.45fr 1fr;
+      gap: 24px;
+      align-items: end;
+      margin-bottom: 22px;
+    }
+
+    h1, h2, p {
+      margin: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      font-size: clamp(34px, 6vw, 72px);
+      line-height: 0.98;
+      font-weight: 800;
+    }
+
+    h2 {
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.55;
+    }
+
+    .summary {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      padding: 14px;
+      border: 1px solid rgba(23, 33, 27, 0.08);
+      border-radius: 8px;
+      background: rgba(255, 250, 242, 0.82);
+      box-shadow: var(--shadow);
+    }
+
+    .summary div {
+      min-width: 0;
+      padding: 14px;
+      border-radius: 6px;
+      background: var(--panel-strong);
+    }
+
+    .summary span,
+    .hero-number span,
+    .metric span,
+    .eyebrow,
+    .categories small {
+      display: block;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .summary strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 20px;
+      line-height: 1.1;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .card {
+      display: flex;
+      min-height: 480px;
+      flex-direction: column;
+      gap: 18px;
+      padding: 22px;
+      border: 1px solid rgba(23, 33, 27, 0.09);
+      border-radius: 8px;
+      background: rgba(255, 250, 242, 0.92);
+      box-shadow: var(--shadow);
+    }
+
+    .card__top {
+      display: flex;
+      min-height: 56px;
+      justify-content: space-between;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .eyebrow {
+      margin-bottom: 7px;
+      text-transform: uppercase;
+      word-break: break-word;
+    }
+
+    .status {
+      flex: 0 0 auto;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(23, 107, 77, 0.1);
+      color: var(--green);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .hero-number strong {
+      display: block;
+      margin-top: 8px;
+      font-size: 32px;
+      line-height: 1;
+    }
+
+    .progress {
+      height: 10px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e5dccd;
+    }
+
+    .progress span {
+      display: block;
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--green), var(--teal));
+    }
+
+    .metric-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+    }
+
+    .metric {
+      min-width: 0;
+      padding: 13px;
+      border: 1px solid rgba(23, 33, 27, 0.08);
+      border-radius: 6px;
+      background: var(--panel-strong);
+    }
+
+    .metric strong {
+      display: block;
+      margin-top: 7px;
+      font-size: 18px;
+      line-height: 1.15;
+      word-break: keep-all;
+    }
+
+    .metric--accent {
+      border-color: rgba(183, 121, 31, 0.28);
+      background: #fff7df;
+    }
+
+    .metric--accent strong {
+      color: var(--gold);
+    }
+
+    .categories {
+      display: grid;
+      gap: 8px;
+      margin: auto 0 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .categories li {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 4px 10px;
+      align-items: baseline;
+      padding: 10px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .categories strong {
+      color: var(--teal);
+    }
+
+    .categories small {
+      grid-column: 1 / -1;
+      font-weight: 600;
+    }
+
+    @media (max-width: 900px) {
+      main {
+        width: min(680px, calc(100% - 24px));
+        padding: 28px 0;
+      }
+
+      .masthead,
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .summary {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+      }
+    }
+
+    @media (max-width: 520px) {
+      .summary,
+      .metric-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        min-height: 0;
+        padding: 18px;
+      }
+
+      .card__top {
+        flex-direction: column;
+      }
+
+      .hero-number strong {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
 <body>
   <main>
-    <h1>카드 현황</h1>
-    <p>기준월: 2026-08</p>
-    <p>생성시각: 2026-09-06T17:27:24</p>
-    <section>
-      <h2>농협 zgm shopping카드</h2>
-      <p>실적 인정금액: 1,545,183원</p>
-      <p>충족 여부: 충족</p>
-      <p>남은 실적: 0원</p>
-      <p>확인 필요금액: 0원</p>
-      <p>예상 적립: 80,000P</p>
+    <header class="masthead">
+      <div>
+        <h1>카드 현황</h1>
+        <p class="subtitle">기준월 2026-08 · 생성시각 2026-09-06T17:41:49</p>
+      </div>
+      <section class="summary" aria-label="월간 요약">
+        <div>
+          <span>충족 카드</span>
+          <strong>3/3</strong>
+        </div>
+        <div>
+          <span>예상 포인트</span>
+          <strong>91,388P</strong>
+        </div>
+        <div>
+          <span>예상 할인</span>
+          <strong>44,515원</strong>
+        </div>
+      </section>
+    </header>
+    <div class="cards">
+    <section class="card">
+      <div class="card__top">
+        <div>
+          <p class="eyebrow">nh_zgm_shopping</p>
+          <h2>농협 zgm shopping카드</h2>
+        </div>
+        <span class="status">충족</span>
+      </div>
+      <div class="hero-number">
+        <span>실적 인정금액</span>
+        <strong>1,545,183원</strong>
+      </div>
+      <div class="progress" aria-label="실적 달성률 100%">
+        <span style="width: 100%"></span>
+      </div>
+      <div class="metric-grid">
+        <div class="metric">
+          <span>목표 실적</span>
+          <strong>500,000원</strong>
+        </div>
+        <div class="metric">
+          <span>남은 실적</span>
+          <strong>0원</strong>
+        </div>
+        <div class="metric">
+          <span>확인 필요</span>
+          <strong>0원</strong>
+        </div>
+        <div class="metric metric--accent">
+          <span>예상 적립</span>
+          <strong>80,000P</strong>
+        </div>
+
+      </div>
+        <ul class="categories">
+          <li>
+            <span>온라인</span>
+            <strong>40,000P</strong>
+            <small>862,030원</small>
+          </li>
+          <li>
+            <span>오프라인</span>
+            <strong>40,000P</strong>
+            <small>360,190원</small>
+          </li>
+        </ul>
     </section>
-    <section>
-      <h2>네이버 현대카드</h2>
-      <p>실적 인정금액: 348,710원</p>
-      <p>충족 여부: 충족</p>
-      <p>남은 실적: 0원</p>
-      <p>확인 필요금액: 0원</p>
-      <p>예상 적립: 11,388P</p>
+    <section class="card">
+      <div class="card__top">
+        <div>
+          <p class="eyebrow">hyundai_naver</p>
+          <h2>네이버 현대카드</h2>
+        </div>
+        <span class="status">충족</span>
+      </div>
+      <div class="hero-number">
+        <span>실적 인정금액</span>
+        <strong>348,710원</strong>
+      </div>
+      <div class="progress" aria-label="실적 달성률 100%">
+        <span style="width: 100%"></span>
+      </div>
+      <div class="metric-grid">
+        <div class="metric">
+          <span>목표 실적</span>
+          <strong>300,000원</strong>
+        </div>
+        <div class="metric">
+          <span>남은 실적</span>
+          <strong>0원</strong>
+        </div>
+        <div class="metric">
+          <span>확인 필요</span>
+          <strong>0원</strong>
+        </div>
+        <div class="metric metric--accent">
+          <span>예상 적립</span>
+          <strong>11,388P</strong>
+        </div>
+
+      </div>
+        <ul class="categories">
+          <li>
+            <span>네이버멤버십대상</span>
+            <strong>9,999P</strong>
+            <small>209,750원</small>
+          </li>
+          <li>
+            <span>기타</span>
+            <strong>1,389P</strong>
+            <small>138,960원</small>
+          </li>
+        </ul>
     </section>
-    <section>
-      <h2>신한카드 Discount Plan+</h2>
-      <p>실적 인정금액: 1,438,210원</p>
-      <p>충족 여부: 충족</p>
-      <p>남은 실적: 0원</p>
-      <p>확인 필요금액: 0원</p>
-      <p>취소 차감금액: 20,900원</p>
-      <p>예상 혜택: 44,515원</p>
+    <section class="card">
+      <div class="card__top">
+        <div>
+          <p class="eyebrow">shinhan_discount_plan_plus</p>
+          <h2>신한카드 Discount Plan+</h2>
+        </div>
+        <span class="status">충족</span>
+      </div>
+      <div class="hero-number">
+        <span>실적 인정금액</span>
+        <strong>1,438,210원</strong>
+      </div>
+      <div class="progress" aria-label="실적 달성률 100%">
+        <span style="width: 100%"></span>
+      </div>
+      <div class="metric-grid">
+        <div class="metric">
+          <span>목표 실적</span>
+          <strong>400,000원</strong>
+        </div>
+        <div class="metric">
+          <span>남은 실적</span>
+          <strong>0원</strong>
+        </div>
+        <div class="metric">
+          <span>확인 필요</span>
+          <strong>0원</strong>
+        </div>
+        <div class="metric metric--accent">
+          <span>예상 혜택</span>
+          <strong>44,515원</strong>
+        </div>
+        <div class="metric">
+          <span>취소 차감</span>
+          <strong>20,900원</strong>
+        </div>
+      </div>
+        <ul class="categories">
+          <li>
+            <span>TimePlan</span>
+            <strong>10,000원</strong>
+            <small>355,900원</small>
+          </li>
+          <li>
+            <span>DailyPlan</span>
+            <strong>25,000원</strong>
+            <small>376,100원</small>
+          </li>
+          <li>
+            <span>MonthlyPlan</span>
+            <strong>9,515원</strong>
+            <small>434,520원</small>
+          </li>
+          <li>
+            <span>MoviePlan</span>
+            <strong>0원</strong>
+            <small>0원</small>
+          </li>
+        </ul>
     </section>
+    </div>
   </main>
 </body>
 </html>
