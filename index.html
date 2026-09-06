@@ -229,6 +229,70 @@
       font-weight: 600;
     }
 
+    .transactions {
+      margin-top: 2px;
+      border-top: 1px solid var(--line);
+    }
+
+    .transactions summary {
+      cursor: pointer;
+      padding: 13px 0 0;
+      color: var(--ink);
+      font-size: 14px;
+      font-weight: 800;
+    }
+
+    .table-wrap {
+      overflow-x: auto;
+      margin-top: 12px;
+      border: 1px solid rgba(23, 33, 27, 0.08);
+      border-radius: 6px;
+      background: var(--panel-strong);
+    }
+
+    table {
+      width: 100%;
+      min-width: 680px;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    th,
+    td {
+      padding: 9px 10px;
+      border-bottom: 1px solid rgba(23, 33, 27, 0.08);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      color: var(--muted);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    td strong {
+      display: block;
+      font-size: 12px;
+      line-height: 1.25;
+    }
+
+    td small {
+      display: block;
+      margin-top: 4px;
+      color: var(--muted);
+      line-height: 1.35;
+    }
+
+    tr:last-child td {
+      border-bottom: 0;
+    }
+
+    .numeric {
+      text-align: right;
+      white-space: nowrap;
+    }
+
     @media (max-width: 900px) {
       main {
         width: min(680px, calc(100% - 24px));
@@ -271,7 +335,7 @@
     <header class="masthead">
       <div>
         <h1>카드 현황</h1>
-        <p class="subtitle">기준월 2026-09 · 생성시각 2026-09-06T20:01:56</p>
+        <p class="subtitle">기준월 2026-09 · 생성시각 2026-09-06T21:02:39</p>
       </div>
       <section class="summary" aria-label="월간 요약">
         <div>
@@ -335,6 +399,157 @@
             <small>100,770원</small>
           </li>
         </ul>
+        <details class="transactions">
+          <summary>사용내역 12건</summary>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>일시</th>
+                  <th>가맹점</th>
+                  <th>금액</th>
+                  <th>구분</th>
+                  <th>적립 여부</th>
+                  <th>적립액</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>2026-09-01 07:14</td>
+                <td>
+                  <strong>(주)우아한형제들</strong>
+                  <small>온라인 화이트리스트: 우아한형제들</small>
+                </td>
+                <td class="numeric">27,586원</td>
+                <td>온라인</td>
+                <td>대상</td>
+                <td class="numeric">4,138P</td>
+              </tr>
+              <tr>
+                <td>2026-09-02 00:00</td>
+                <td>
+                  <strong>OPENAICHATGPTSU</strong>
+                  <small>온라인/오프라인 화이트리스트 없음</small>
+                </td>
+                <td class="numeric">30,741원</td>
+                <td>비대상</td>
+                <td>비대상</td>
+                <td class="numeric">0P</td>
+              </tr>
+              <tr>
+                <td>2026-09-02 09:14</td>
+                <td>
+                  <strong>(주)우아한형제들</strong>
+                  <small>온라인 화이트리스트: 우아한형제들</small>
+                </td>
+                <td class="numeric">5,490원</td>
+                <td>온라인</td>
+                <td>대상</td>
+                <td class="numeric">824P</td>
+              </tr>
+              <tr>
+                <td>2026-09-02 11:48</td>
+                <td>
+                  <strong>홈플러스(주)영통점</strong>
+                  <small>오프라인 화이트리스트: 홈플러스(주)영통점</small>
+                </td>
+                <td class="numeric">47,680원</td>
+                <td>오프라인</td>
+                <td>대상</td>
+                <td class="numeric">7,152P</td>
+              </tr>
+              <tr>
+                <td>2026-09-02 19:38</td>
+                <td>
+                  <strong>카페3(kafe3)</strong>
+                  <small>온라인/오프라인 화이트리스트 없음</small>
+                </td>
+                <td class="numeric">1,000원</td>
+                <td>비대상</td>
+                <td>비대상</td>
+                <td class="numeric">0P</td>
+              </tr>
+              <tr>
+                <td>2026-09-02 21:20</td>
+                <td>
+                  <strong>주식회사 에스에스지닷컴</strong>
+                  <small>온라인/오프라인 화이트리스트 없음</small>
+                </td>
+                <td class="numeric">41,200원</td>
+                <td>비대상</td>
+                <td>비대상</td>
+                <td class="numeric">0P</td>
+              </tr>
+              <tr>
+                <td>2026-09-02 22:08</td>
+                <td>
+                  <strong>주식회사 빌리지베이비</strong>
+                  <small>온라인/오프라인 화이트리스트 없음</small>
+                </td>
+                <td class="numeric">67,240원</td>
+                <td>비대상</td>
+                <td>비대상</td>
+                <td class="numeric">0P</td>
+              </tr>
+              <tr>
+                <td>2026-09-03 13:20</td>
+                <td>
+                  <strong>(주)어글리스토브 영통망포점</strong>
+                  <small>온라인/오프라인 화이트리스트 없음</small>
+                </td>
+                <td class="numeric">60,900원</td>
+                <td>비대상</td>
+                <td>비대상</td>
+                <td class="numeric">0P</td>
+              </tr>
+              <tr>
+                <td>2026-09-04 11:11</td>
+                <td>
+                  <strong>홈플러스(주)영통점</strong>
+                  <small>오프라인 화이트리스트: 홈플러스(주)영통점</small>
+                </td>
+                <td class="numeric">53,090원</td>
+                <td>오프라인</td>
+                <td>대상</td>
+                <td class="numeric">7,964P</td>
+              </tr>
+              <tr>
+                <td>2026-09-04 18:04</td>
+                <td>
+                  <strong>일란떡볶이</strong>
+                  <small>온라인/오프라인 화이트리스트 없음</small>
+                </td>
+                <td class="numeric">4,000원</td>
+                <td>비대상</td>
+                <td>비대상</td>
+                <td class="numeric">0P</td>
+              </tr>
+              <tr>
+                <td>2026-09-05 22:09</td>
+                <td>
+                  <strong>주식회사 카카오</strong>
+                  <small>온라인/오프라인 화이트리스트 없음</small>
+                </td>
+                <td class="numeric">19,800원</td>
+                <td>비대상</td>
+                <td>비대상</td>
+                <td class="numeric">0P</td>
+              </tr>
+              <tr>
+                <td>2026-09-06 16:40</td>
+                <td>
+                  <strong>주식회사 위쥬테크</strong>
+                  <small>온라인/오프라인 화이트리스트 없음</small>
+                </td>
+                <td class="numeric">350원</td>
+                <td>비대상</td>
+                <td>비대상</td>
+                <td class="numeric">0P</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
     </section>
     <section class="card">
       <div class="card__top">
@@ -382,6 +597,91 @@
             <small>0원</small>
           </li>
         </ul>
+        <details class="transactions">
+          <summary>사용내역 6건</summary>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>일시</th>
+                  <th>가맹점</th>
+                  <th>금액</th>
+                  <th>구분</th>
+                  <th>적립 여부</th>
+                  <th>적립액</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>2026-09-01 11:22</td>
+                <td>
+                  <strong>네이버페이</strong>
+                  <small>네이버플러스 후보 키워드: 네이버페이</small>
+                </td>
+                <td class="numeric">20,300원</td>
+                <td>네이버멤버십대상</td>
+                <td>대상</td>
+                <td class="numeric">1,015P</td>
+              </tr>
+              <tr>
+                <td>2026-09-01 19:03</td>
+                <td>
+                  <strong>네이버페이</strong>
+                  <small>네이버플러스 후보 키워드: 네이버페이</small>
+                </td>
+                <td class="numeric">13,910원</td>
+                <td>네이버멤버십대상</td>
+                <td>대상</td>
+                <td class="numeric">695P</td>
+              </tr>
+              <tr>
+                <td>2026-09-01 21:13</td>
+                <td>
+                  <strong>네이버페이</strong>
+                  <small>네이버플러스 후보 키워드: 네이버페이</small>
+                </td>
+                <td class="numeric">18,000원</td>
+                <td>네이버멤버십대상</td>
+                <td>대상</td>
+                <td class="numeric">900P</td>
+              </tr>
+              <tr>
+                <td>2026-09-01 22:01</td>
+                <td>
+                  <strong>네이버페이</strong>
+                  <small>네이버플러스 후보 키워드: 네이버페이</small>
+                </td>
+                <td class="numeric">31,900원</td>
+                <td>네이버멤버십대상</td>
+                <td>대상</td>
+                <td class="numeric">1,595P</td>
+              </tr>
+              <tr>
+                <td>2026-09-05 10:36</td>
+                <td>
+                  <strong>네이버페이</strong>
+                  <small>네이버플러스 후보 키워드: 네이버페이</small>
+                </td>
+                <td class="numeric">32,900원</td>
+                <td>네이버멤버십대상</td>
+                <td>대상</td>
+                <td class="numeric">1,645P</td>
+              </tr>
+              <tr>
+                <td>2026-09-06 11:19</td>
+                <td>
+                  <strong>네이버페이</strong>
+                  <small>네이버플러스 후보 키워드: 네이버페이</small>
+                </td>
+                <td class="numeric">14,650원</td>
+                <td>네이버멤버십대상</td>
+                <td>대상</td>
+                <td class="numeric">732P</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
     </section>
     <section class="card">
       <div class="card__top">
@@ -442,6 +742,69 @@
             <small>0원</small>
           </li>
         </ul>
+        <details class="transactions">
+          <summary>사용내역 4건</summary>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>일시</th>
+                  <th>가맹점</th>
+                  <th>금액</th>
+                  <th>구분</th>
+                  <th>할인 여부</th>
+                  <th>할인액</th>
+                </tr>
+              </thead>
+              <tbody>
+              <tr>
+                <td>2026-09-01 03:38</td>
+                <td>
+                  <strong>비바리퍼블리</strong>
+                  <small>할인 후보 키워드 없음</small>
+                </td>
+                <td class="numeric">2,481원</td>
+                <td>비대상</td>
+                <td>비대상</td>
+                <td class="numeric">0원</td>
+              </tr>
+              <tr>
+                <td>2026-09-04 19:57</td>
+                <td>
+                  <strong>주식회사 우</strong>
+                  <small>NIGHT 후보 키워드: 주식회사 우</small>
+                </td>
+                <td class="numeric">38,000원</td>
+                <td>TimePlan</td>
+                <td>대상</td>
+                <td class="numeric">1,000원</td>
+              </tr>
+              <tr>
+                <td>2026-09-05 20:08</td>
+                <td>
+                  <strong>주식회사 우</strong>
+                  <small>NIGHT 후보 키워드: 주식회사 우</small>
+                </td>
+                <td class="numeric">31,900원</td>
+                <td>TimePlan</td>
+                <td>대상</td>
+                <td class="numeric">1,000원</td>
+              </tr>
+              <tr>
+                <td>2026-09-06 19:15</td>
+                <td>
+                  <strong>CU 영통건영</strong>
+                  <small>NIGHT 후보 키워드: CU</small>
+                </td>
+                <td class="numeric">5,600원</td>
+                <td>TimePlan</td>
+                <td>대상</td>
+                <td class="numeric">560원</td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
     </section>
     </div>
   </main>
